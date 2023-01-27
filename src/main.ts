@@ -44,16 +44,6 @@ export function updateOutput() {
 
 const main = document.querySelector('main') as HTMLElement;
 
-const inputEl = document.createElement('textarea');
-inputEl.rows = 10;
-const inputElText = document.createTextNode('input');
-inputEl.appendChild(inputElText);
-
-const outputEl = document.createElement('textarea');
-outputEl.rows = 10;
-const outputElText = document.createTextNode('output');
-outputEl.appendChild(outputElText);
-
 const buttonEl = document.createElement('button');
 const buttonElText = document.createTextNode('translate');
 buttonEl.appendChild(buttonElText);
@@ -78,7 +68,30 @@ selectEl.onchange = (e: any) => {
   selected = e.target.value;
 };
 
-main.appendChild(inputEl);
-main.appendChild(outputEl);
-main.appendChild(buttonEl);
-main.appendChild(selectEl);
+const inputEl = document.createElement('textarea');
+inputEl.rows = 10;
+inputEl.cols = 50;
+const inputElText = document.createTextNode('input');
+inputEl.appendChild(inputElText);
+const inputContainerEl = document.createElement('div');
+inputContainerEl.className = 'container';
+inputContainerEl.appendChild(document.createTextNode('CSS Style'));
+inputContainerEl.appendChild(inputEl);
+
+const outputEl = document.createElement('textarea');
+outputEl.rows = 10;
+outputEl.cols = 50;
+const outputElText = document.createTextNode('output');
+outputEl.appendChild(outputElText);
+const outputContainerEl = document.createElement('div');
+outputContainerEl.className = 'container';
+outputContainerEl.appendChild(selectEl);
+outputContainerEl.appendChild(outputEl);
+
+const controlPanelEl = document.createElement('div');
+controlPanelEl.className = 'control-panel';
+controlPanelEl.appendChild(buttonEl);
+
+main.appendChild(inputContainerEl);
+main.appendChild(outputContainerEl);
+main.appendChild(controlPanelEl);
