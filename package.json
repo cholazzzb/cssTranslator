@@ -1,0 +1,41 @@
+{
+  "name": "css-translator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "[ -z \"$HUSKY\" ] && husky install .husky || echo \"ignore husky\"",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "lint": "eslint . --max-warnings 0 --ext ts --ext tsx",
+    "format": "prettier --write '**/*.{ts,tsx}'",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "pnpm lint",
+      "pnpm format"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-testing-library": "^5.10.0",
+    "husky": "^8.0.3",
+    "jest": "^28.1.0",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.9.4",
+    "vite": "^2.9.9",
+    "vite-tsconfig-paths": "^3.5.0"
+  },
+  "keywords": [],
+  "author": "Nicholas Toro",
+  "license": "ISC"
+}
