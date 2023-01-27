@@ -1,4 +1,4 @@
-// Exact: valule in px, hexa. Defined: position: absolute, etc
+// Exact: value in px, hexa. Defined: position: absolute, etc
 type TailwindType = 'exact' | 'defined';
 type TailwindTypeObj = {
   type: TailwindType;
@@ -19,7 +19,7 @@ mapContain.forEach((obj) => {
   map.set(obj[0], obj[1]);
 });
 
-export function convert(className: string): string {
+export default function convert(className: string): string {
   if (className === '') return '';
   const [style, value] = className.split(':');
   const converted = map.get(style);
